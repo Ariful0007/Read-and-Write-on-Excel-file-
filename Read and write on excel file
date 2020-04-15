@@ -1,0 +1,30 @@
+
+import pandas as pd
+import numpy as np
+import xrd
+import xlsxwriter
+
+
+sheet1=pd.ExcelFile("first_1.xlsx")
+sheet2=pd.read_excel(sheet1)
+print(sheet2)
+print("Enter any search value : ")
+search_val=str(input())
+print(sheet2['Name '].where(sheet2['Occupation']==search_val))
+programmer= sheet2['Name '].where(sheet2['Occupation']==search_val).dropna()
+#print(programmer)
+
+programmer.to_excel("output.xlsx")
+'''excel_file=['first_1.xlsx','first_2.xlsx']
+for invid_file in excel_file:
+    sheet2=pd.read_excel(invid_file)
+    programmer=sheet2['Name '].where(sheet2['Occupation']==search_val).dropna()
+    print("File Name : "+invid_file)
+    'sheet2.to_excel("output.xlsx")'''
+
+
+
+
+
+if __name__ == '__main__':
+    pass
